@@ -1,0 +1,89 @@
+.navigation,
+.navigation-top {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navigation {
+    height: 80px;
+    background-color: #7a81eb;
+    color: white;
+    font-size: large;
+    margin-bottom: 5%;
+}
+
+.competition {
+    margin-left: 50px;
+}
+
+.community {
+    margin-right: 50px;
+}
+
+.navigation>div>a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: font-size 0.7s;
+}
+
+.navigation>div>a:hover {
+    font-size: x-large;
+}
+
+.navigation-top {
+    margin-bottom: 1%;
+    padding: 2%;
+}
+
+.competition_select {
+    margin: 0% 15% 0% 15%;
+    display: flex;
+    border: solid 1px #7a81eb;
+    align-items: center;
+    width: 500px;
+    height: 50px;
+}
+
+.competition_select>form>input {
+    margin: 0px 20px 0px 20px;
+    width: 400px;
+    height: 40px;
+    border: none;
+}
+
+.competition_select>form>input:focus {
+    outline: none;
+}
+
+.mypage {
+    padding: 12px;
+    border: solid 1px;
+    border-radius: 100%;
+    color: white;
+    background-color: #5cbcf6;
+}
+
+.logo {
+    width: 100px;
+    height: 80px;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: 20px 0px 0px 0px;
+    background-image: url(../img/logo.png);
+}
+
+.search {
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.logo-main {
+    margin-top: 1%;
+    display: flex;
+    justify-content: center;
+}
