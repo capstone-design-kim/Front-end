@@ -41,7 +41,7 @@ export default function MyPage() {
                             <h1 class="login__title">로그인</h1>
                             <div class="login__box">
                                 <i class='bx bx-user login__icon'></i>
-                                <input type="text" placeholder="Username" class="login__input" />
+                                <input type="text" placeholder="UserId" class="login__input" />
                             </div>
                             <div class="login__box">
                                 <i class='bx bx-lock login__icon'></i>
@@ -62,7 +62,17 @@ export default function MyPage() {
                             <h1 class="login__title">회원가입</h1>
                             <div class="login__box">
                                 <i class='bx bx-user login__icon'></i>
-                                <input type="text" placeholder="Username" class="login__input" />
+                                <input type="text" placeholder="UserId" class="login__input" />
+                            </div>
+
+                            <div class="login__box">
+                                <i class='bx bx-lock login__icon'></i>
+                                <input type="password" placeholder="Password" class="login__input" />
+                            </div>
+
+                            <div class="login__box">
+                                <i class='bx bx-user login__icon'></i>
+                                <input type="text" placeholder="UserName" class="login__input" />
                             </div>
 
                             <div class="login__box">
@@ -71,9 +81,21 @@ export default function MyPage() {
                             </div>
 
                             <div class="login__box">
-                                <i class='bx bx-lock login__icon'></i>
-                                <input type="text" placeholder="Password" class="login__input" />
+                                <i class='bx bx-user login__icon'></i>
+                                <input type="text" placeholder="Phone" class="login__input" />
                             </div>
+
+                            <div class="login__box">
+                                <i class='bx bx-user login__icon'></i>
+                                <input type="text" placeholder="address" class="login__input" />
+                            </div>
+
+                            <div class="login__box">
+                                <i class='bx bx-user login__icon'></i>
+                                <input type="text" placeholder="gender" class="login__input" />
+                            </div>
+
+
 
                             <a href="#" class="login__button">회원가입</a>
 
