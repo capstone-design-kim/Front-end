@@ -1,0 +1,46 @@
+.zip__input {
+    width: 30%;
+    height: 25px;
+    margin-right: 6%;
+    margin-bottom: 2%;
+    cursor: default;
+}
+
+.road__input {
+    width: 62%;
+    height: 25px;
+    margin-bottom: 2%;
+    cursor: default;
+}
+
+.detail__input {
+    width: 62%;
+    height: 25px;
+}
+
+div>input {
+    outline: none;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #23004d;
+}
+
+.zip__box {
+    cursor: pointer;
+    background-color: #4AD395;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.outbutton {
+    cursor: pointer;
+    margin-left: 45%;
+    margin-top: 5%;
+    background-color: #4AD395;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 10px;
+}
