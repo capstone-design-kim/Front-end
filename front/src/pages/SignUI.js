@@ -6,6 +6,7 @@ import Logo from '../Logo.js';
 import Post from '../component/Post.js';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faLock, faPerson, faEnvelope, faPhone, faHouse, faVenusMars, faUsers, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import Swal from 'sweetalert2';
 
 export default function MyPage() {
     const navigate = useNavigate();
@@ -41,13 +42,19 @@ export default function MyPage() {
         let check_pw = document.getElementById("login_pw");
 
         if (check_id.value.trim() === "") {
-            alert("아이디를 입력해주세요");
-            check_id.focus();
+            Swal.fire({
+                title: "아이디를 입력해주세요"
+            }).then(() => {
+                check_id.focus();
+            });
             return false;
         }
         if (check_pw.value.trim() === "") {
-            alert("비밀번호를 입력해주세요");
-            check_pw.focus();
+            Swal.fire({
+                title: "비밀번호를 입력해주세요"
+            }).then(() => {
+                check_pw.focus();
+            });
             return false;
         }
 
@@ -59,10 +66,14 @@ export default function MyPage() {
             }).then(result => {
                 if (result.status == 200) {
                     alert("로그인에 성공했습니다");
-                    navigate('/')
+                    navigate('/');
                 } else {
-                    alert("아이디 / 비밀번호가 맞지 않습니다");
-                    navigate('/Login')
+                    Swal.fire({
+                        title: "아이디 / 비밀번호가 맞지 않습니다"
+                    }).then(() => {
+                        navigate('/Login');
+                    });
+                    return false;
                 }
             })
         } catch (err) {
@@ -104,6 +115,16 @@ export default function MyPage() {
     };
 
     const idCheck = e => {
+        let idCheck = document.querySelector("#id");
+        if (idCheck.value.trim() === "") {
+            Swal.fire({
+                title: "아이디를 입력해주세요"
+            }).then(() => {
+                idCheck.focus();
+            });
+            return false;
+        }
+
         e.preventDefault();
         let id = e.target.value;
 
@@ -118,11 +139,19 @@ export default function MyPage() {
                     setId(id);
                     setIsId(true);
                 } else if (result.status === 409) {
-                    alert("이미 사용중인 아이디 입니다.");
-                    setId(false);
+                    Swal.fire({
+                        title: "아이디를 다시 입력해주세요"
+                    }).then(() => {
+                        idCheck.focus();
+                        setId(false);
+                    });
                 } else {
-                    alert("사용 불가한 아이디입니다.");
-                    setId(false);
+                    Swal.fire({
+                        title: "사용 불가능한 아이디입니다"
+                    }).then(() => {
+                        idCheck.focus();
+                        setId(false);
+                    });
                 }
             })
         } catch (err) {
@@ -182,20 +211,29 @@ export default function MyPage() {
         const loginup2 = document.getElementById("login-up-2");
 
         if (idCheck.value.trim() === "") {
-            alert("아이디를 입력해주세요");
-            idCheck.focus();
+            Swal.fire({
+                title: "아이디를 입력해주세요"
+            }).then(() => {
+                idCheck.focus();
+            });
             return false;
         }
 
         if (pwCheck.value.trim() === "") {
-            alert("비밀번호를 입력해주세요");
-            pwCheck.focus();
+            Swal.fire({
+                title: "비밀번호를 입력해주세요"
+            }).then(() => {
+                pwCheck.focus();
+            });
             return false;
         }
 
         if (nameCheck.value.trim() === "") {
-            alert("사용자 이름을 입력해주세요");
-            nameCheck.focus();
+            Swal.fire({
+                title: "사용자 이름을 입력해주세요"
+            }).then(() => {
+                nameCheck.focus();
+            });
             return false;
         }
 
@@ -225,37 +263,54 @@ export default function MyPage() {
         const loginup3 = document.getElementById("login-up-3");
 
         if (emailCheck.value.trim() === "") {
-            alert("이메일을 입력해주세요");
-            emailCheck.focus();
+            Swal.fire({
+                title: "이메일을 입력해주세요"
+            }).then(() => {
+                emailCheck.focus();
+            });
             return false;
         }
 
         if (emailSecondCheck.value.trim() === "") {
-            alert("이메일 주소를 입력해주세요");
-            emailSecondCheck.focus();
+            Swal.fire({
+                title: "이메일 주소를 입력해주세요"
+            }).then(() => {
+                emailSecondCheck.focus();
+            });
             return false;
         }
 
         if (phoneSecondCheck.value.trim() === "") {
-            alert("휴대폰 중간 번호를 입력해주세요");
-            phoneSecondCheck.focus();
+            Swal.fire({
+                title: "휴대폰 중간 번호를 입력해주세요"
+            }).then(() => {
+                phoneSecondCheck.focus();
+            });
             return false;
         }
 
         if (phoneThirdCheck.value.trim() === "") {
-            alert("휴대폰 뒷 번호를 입력해주세요");
-            phoneThirdCheck.focus();
+            Swal.fire({
+                title: "휴대폰 뒷 번호를 입력해주세요"
+            }).then(() => {
+                phoneThirdCheck.focus();
+            });
             return false;
         }
 
         if (houseCheck.value.trim() === "" || houseSecondCheck.value.trim === "") {
-            alert("우편번호 찾기를 해주세요");
+            Swal.fire({
+                title: "우편번호 찾기를 해주세요"
+            });
             return false;
         }
 
         if (houseThirdCheck.value.trim() === "") {
-            alert("상세 주소를 입력해주세요");
-            houseThirdCheck.focus();
+            Swal.fire({
+                title: "상세 주소를 입력해주세요"
+            }).then(() => {
+                houseThirdCheck.focus();
+            });
             return false;
         }
 

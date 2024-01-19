@@ -10,22 +10,22 @@
     background-color: #7a81eb;
     color: white;
     font-size: large;
-    margin-bottom: 5%;
+    margin-bottom: 2%;
 }
 
 .competition {
-    margin-left: 50px;
+    margin-left: 60px;
 }
 
 .community {
-    margin-right: 50px;
+    margin-right: 60px;
 }
 
 .navigation>div>a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    transition: font-size 0.7s;
+    transition: font-size 0.5s;
 }
 
 .navigation>div>a:hover {
@@ -65,12 +65,19 @@
     background-color: #5cbcf6;
 }
 
+.mypage:hover {
+    padding: 12px;
+    border: solid 1px;
+    border-radius: 100%;
+    color: white;
+    background-color: #439ed7;
+}
+
 .logo {
     width: 230px;
     height: 40px;
     background-size: 100%;
     background-repeat: no-repeat;
-    background-position: 0px 0px 0px 0px;
     background-image: url(../img/logo.png);
 }
 
