@@ -100,8 +100,7 @@
 
 table {
     border: solid 1px;
-    margin-left: 7.85vw;
-    width: 83.2vw;
+    margin-left: 312px;
     margin-top: 30px;
 }
 
@@ -127,7 +126,7 @@ tr {
 .competition_content {
     border-top: solid 1px white;
     border-bottom: solid 1px white;
-    margin-top: 43vh;
+    margin-top: 289px;
     padding-top: 10px;
     padding-bottom: 10px;
 }
@@ -177,17 +176,17 @@ tr {
 .contestSituation,
 .contestCircumstances,
 .hits {
-    width: 8vw;
+    width: 130px;
     padding: 20px 0px 20px 0px;
 }
 
 .contestName {
-    width: 39vw;
+    width: 583px;
     padding: 20px 0px 20px 0px;
 }
 
 .contestName_content {
-    width: 39vw;
+    width: 583px;
     border-top: solid 1px;
     padding: 30px 0px 30px 0px;
     color: black;
@@ -195,12 +194,12 @@ tr {
 }
 
 .contestPeriod {
-    width: 20vw;
+    width: 300px;
     padding: 20px 0px 20px 0px;
 }
 
 .contestPeriod_content {
-    width: 20vw;
+    width: 300px;
     border-top: solid 1px;
     padding: 30px 0px 30px 0px;
     color: #747474;
@@ -209,7 +208,7 @@ tr {
 .contestSituation_content,
 .contestCircumstances_content,
 .hits_content {
-    width: 8vw;
+    width: 130px;
     border-top: solid 1px;
     padding: 30px 0px 30px 0px;
     color: #747474;
