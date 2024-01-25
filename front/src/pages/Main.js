@@ -45,64 +45,66 @@ export default function Main() {
                 </div>
                 <div></div>
             </div>
-            <table>
-                <tr>
-                    <td className="contestName">공모명</td>
-                    <td className="contestPeriod">진행기간</td>
-                    <td className="contestSituation">진행현황</td>
-                    <td className="contestCircumstances">매칭현황</td>
-                    <td className="hits">조회수</td>
-                </tr>
-                <tr>
-                    <td className="contestName_content">2024년 에코스타트업 지원사업  & 청년그린창업 스프링캠프 모집</td>
-                    <td className="contestPeriod_content">23-12-27 ~ 24-01-21</td>
-                    <td className="contestSituation_content" id="ongoing">접수중</td>
-                    <td className="contestCircumstances_content">매칭마감</td>
-                    <td className="hits_content">1500</td>
-                </tr>
-                <tr>
-                    <td className="contestName_content">제86회 대학생 온라인 기업경영 체험스쿨 참가자 모집</td>
-                    <td className="contestPeriod_content">23-12-26 ~ 24-01-14</td>
-                    <td className="contestSituation_content" id="deadline">마감임박</td>
-                    <td className="contestCircumstances_content">매칭마감</td>
-                    <td className="hits_content">470</td>
-                </tr>
-                <tr>
-                    <td className="contestName_content">링글 AI OPIc 서포터즈 1기 모집</td>
-                    <td className="contestPeriod_content">23-12-26 ~ 24-01-14</td>
-                    <td className="contestSituation_content" id="deadline">마감임박</td>
-                    <td className="contestCircumstances_content">매칭마감</td>
-                    <td className="hits_content">845</td>
-                </tr>
-                <tr>
-                    <td className="contestName_content">국민의힘 제22대 국회의원 선거 '국민 +(플러스)' 공약 대전</td>
-                    <td className="contestPeriod_content">23-11-17 ~ 24-01-07</td>
-                    <td className="contestSituation_content" id="deadline">마감임박</td>
-                    <td className="contestCircumstances_content">매칭마감</td>
-                    <td className="hits_content">578</td>
-                </tr>
-                <tr>
-                    <td className="contestName_content">2024 경기세계도자비엔날레 국제공모전 작품 모집</td>
-                    <td className="contestPeriod_content">24-12-01 ~ 24-12-15</td>
-                    <td className="contestSituation_content" id="schedule">접수예정</td>
-                    <td className="contestCircumstances_content" id="schedule">매칭예정</td>
-                    <td className="hits_content">182</td>
-                </tr>
-                <tr>
-                    <td className="contestName_content">프로픽 아카데미 제 8회 무협 공모전</td>
-                    <td className="contestPeriod_content">23-12-27 ~ 24-01-10</td>
-                    <td className="contestSituation_content" id="deadline">마감임박</td>
-                    <td className="contestCircumstances_content">매칭마감</td>
-                    <td className="hits_content">719</td>
-                </tr>
-                <tr>
-                    <td className="contestName_content">K리그 X 하나은행 : 축덕카드 디자인 공모전</td>
-                    <td className="contestPeriod_content">23-12-27 ~ 24-02-10</td>
-                    <td className="contestSituation_content" id="ongoing">접수중</td>
-                    <td className="contestCircumstances_content" id="ongoing">매칭중</td>
-                    <td className="hits_content">391</td>
-                </tr>
-            </table>
+            <div className="table_box">
+                <table>
+                    <tr>
+                        <td className="contestName">공모명</td>
+                        <td className="contestPeriod">진행기간</td>
+                        <td className="contestSituation">진행현황</td>
+                        <td className="contestCircumstances">매칭현황</td>
+                        <td className="hits">조회수</td>
+                    </tr>
+                    <tr>
+                        <td className="contestName_content">2024년 에코스타트업 지원사업  & 청년그린창업 스프링캠프 모집</td>
+                        <td className="contestPeriod_content">23-12-27 ~ 24-01-21</td>
+                        <td className="contestSituation_content" id="ongoing">접수중</td>
+                        <td className="contestCircumstances_content">매칭마감</td>
+                        <td className="hits_content">1500</td>
+                    </tr>
+                    <tr>
+                        <td className="contestName_content">제86회 대학생 온라인 기업경영 체험스쿨 참가자 모집</td>
+                        <td className="contestPeriod_content">23-12-26 ~ 24-01-14</td>
+                        <td className="contestSituation_content" id="deadline">마감임박</td>
+                        <td className="contestCircumstances_content">매칭마감</td>
+                        <td className="hits_content">470</td>
+                    </tr>
+                    <tr>
+                        <td className="contestName_content">링글 AI OPIc 서포터즈 1기 모집</td>
+                        <td className="contestPeriod_content">23-12-26 ~ 24-01-14</td>
+                        <td className="contestSituation_content" id="deadline">마감임박</td>
+                        <td className="contestCircumstances_content">매칭마감</td>
+                        <td className="hits_content">845</td>
+                    </tr>
+                    <tr>
+                        <td className="contestName_content">국민의힘 제22대 국회의원 선거 '국민 +(플러스)' 공약 대전</td>
+                        <td className="contestPeriod_content">23-11-17 ~ 24-01-07</td>
+                        <td className="contestSituation_content" id="deadline">마감임박</td>
+                        <td className="contestCircumstances_content">매칭마감</td>
+                        <td className="hits_content">578</td>
+                    </tr>
+                    <tr>
+                        <td className="contestName_content">2024 경기세계도자비엔날레 국제공모전 작품 모집</td>
+                        <td className="contestPeriod_content">24-12-01 ~ 24-12-15</td>
+                        <td className="contestSituation_content" id="schedule">접수예정</td>
+                        <td className="contestCircumstances_content" id="schedule">매칭예정</td>
+                        <td className="hits_content">182</td>
+                    </tr>
+                    <tr>
+                        <td className="contestName_content">프로픽 아카데미 제 8회 무협 공모전</td>
+                        <td className="contestPeriod_content">23-12-27 ~ 24-01-10</td>
+                        <td className="contestSituation_content" id="deadline">마감임박</td>
+                        <td className="contestCircumstances_content">매칭마감</td>
+                        <td className="hits_content">719</td>
+                    </tr>
+                    <tr>
+                        <td className="contestName_content">K리그 X 하나은행 : 축덕카드 디자인 공모전</td>
+                        <td className="contestPeriod_content">23-12-27 ~ 24-02-10</td>
+                        <td className="contestSituation_content" id="ongoing">접수중</td>
+                        <td className="contestCircumstances_content" id="ongoing">매칭중</td>
+                        <td className="hits_content">391</td>
+                    </tr>
+                </table>
+            </div>
             <div className="Bottom_competition">
                 <FontAwesomeIcon className="arrow" icon={faCaretLeft} />
                 <div>

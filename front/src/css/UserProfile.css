@@ -1,0 +1,99 @@
+.user_file_form_box,
+.user_stack_box,
+.user_profile_box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user_introduce {
+    outline: none;
+    border: none;
+    border-bottom: solid 2px;
+    width: 600px;
+    height: 40px;
+    font-size: large;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.user_stack_big_box,
+.user_profile_big_box {
+    width: 600px;
+    display: flex;
+    margin-bottom: 50px;
+}
+
+.user_stack,
+.user_profile_contestName,
+.user_profile_stack,
+.user_profile_contestPeriod,
+.user_profile_gitHub {
+    outline: none;
+    border: none;
+    border-bottom: solid 2px;
+    width: 300px;
+    margin-bottom: 10px;
+    font-size: large;
+}
+
+.user_stack_box>button,
+.user_profile_box>button,
+.user_profile_button_box>button {
+    width: 300px;
+    background-color: #4AD395;
+    color: white;
+    border: none;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    cursor: pointer;
+}
+
+.user_profile_button_box {
+    width: 600px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.user_profile_button_box>button {
+    width: 200px;
+    background-color: #4AD395;
+    color: white;
+    border: none;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    cursor: pointer;
+}
+
+.user_profile_list_box>ul>li {
+    width: 265px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.user_profile_list_box>ul>li>div>div {
+    width: 600px;
+    display: flex;
+    align-items: center;
+}
+
+.user_profile_list_box>ul>li>div>div>p {
+    color: #747474;
+}
+
+.user_profile_list_box>ul>li>button {
+    opacity: 0;
+}
+
+.user_profile_list_box>ul>li:hover button {
+    opacity: 1;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    color: #4AD395;
+    font-weight: bold;
+    font-size: large;
+}

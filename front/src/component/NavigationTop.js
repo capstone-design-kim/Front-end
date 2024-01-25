@@ -16,6 +16,8 @@ const Navigation = () => {
                 </form>
                 <button type='button' className='search'><FontAwesomeIcon icon={faMagnifyingGlass} size='2x' /></button>
             </div>
+            <div className='competition'><Link to='/Competition'>전체 공모전 목록</Link></div>
+
             <Link to='/MyPage'><div id='3' className='mypage'>
                 <FontAwesomeIcon icon={faUser} size='2x' />
             </div></Link>

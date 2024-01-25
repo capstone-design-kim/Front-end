@@ -13,23 +13,14 @@
     margin-bottom: 2%;
 }
 
-.competition {
-    margin-left: 60px;
-}
-
-.community {
-    margin-right: 60px;
-}
-
-.navigation>div>a {
-    color: white;
-    text-decoration: none;
+.competition>a {
+    color: black;
     font-weight: bold;
     transition: font-size 0.5s;
 }
 
-.navigation>div>a:hover {
-    font-size: x-large;
+.competition>a:hover {
+    font-size: large;
 }
 
 .navigation-top {
@@ -94,4 +85,41 @@
     margin-bottom: 2%;
     display: flex;
     justify-content: center;
+}
+
+.myPage_main {
+    height: 230px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #4AD395;
+}
+
+.profile_box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: default;
+}
+
+.profile_img {
+    border-radius: 100px;
+    background-image: url('../img/프로필.jpg');
+    background-repeat: no-repeat;
+    background-size: 300px;
+    background-position-x: -92px;
+    background-position-y: -25px;
+    width: 120px;
+    height: 120px;
+}
+
+.myPage_main_font,
+.myPage_main_font_p {
+    color: white;
+    font-size: large;
+    font-weight: bold;
+}
+
+.myPage_main_font_p {
+    cursor: pointer;
 }

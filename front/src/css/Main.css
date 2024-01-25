@@ -70,7 +70,7 @@
 }
 
 .Top_competition {
-    margin-top: 30vh;
+    margin-top: 150px;
     display: flex;
     justify-content: center;
 }
@@ -98,9 +98,13 @@
     color: #430094;
 }
 
+.table_box {
+    display: flex;
+    justify-content: center;
+}
+
 table {
     border: solid 1px;
-    margin-left: 312px;
     margin-top: 30px;
 }
 
@@ -126,7 +130,7 @@ tr {
 .competition_content {
     border-top: solid 1px white;
     border-bottom: solid 1px white;
-    margin-top: 289px;
+    margin-top: 305px;
     padding-top: 10px;
     padding-bottom: 10px;
 }
@@ -135,7 +139,7 @@ tr {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 5vh;
+    height: 40px;
 }
 
 .competition_content,
@@ -149,7 +153,7 @@ tr {
 .img_box {
     opacity: 0;
     background-color: #4AD395;
-    height: 13.7vh;
+    height: 115px;
     transition: 0.3s;
 }
 

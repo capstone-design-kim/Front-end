@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import '../css/SignUI.css';
-import Logo from '../Logo.js';
+import Logo from '../component/Logo.js';
 import Post from '../component/Post.js';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faLock, faPerson, faEnvelope, faPhone, faHouse, faVenusMars, faUsers, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 
 export default function MyPage() {
     const navigate = useNavigate();
-    const UserInfo = {}
+    const [userInfo, setUserInfo] = useState({});
 
     // 유효성 검사를 위한 선언
     const [id, setId] = useState('');
@@ -35,8 +35,7 @@ export default function MyPage() {
 
     const onLogin = e => {
         e.preventDefault();
-        UserInfo['userId'] = id
-        UserInfo['password'] = pw
+        setUserInfo({ userId: id, password: pw });
 
         let check_id = document.getElementById("login_id");
         let check_pw = document.getElementById("login_pw");
@@ -62,7 +61,7 @@ export default function MyPage() {
             axios({
                 method: 'post',
                 url: '/user/login',
-                data: UserInfo
+                data: userInfo
             }).then(result => {
                 if (result.status == 200) {
                     alert("로그인에 성공했습니다");
@@ -90,19 +89,21 @@ export default function MyPage() {
         setTendency(tendency_input.value.trim());
 
         e.preventDefault();
-        UserInfo['userId'] = id
-        UserInfo['password'] = pw
-        UserInfo['username'] = name
-        UserInfo['email'] = email
-        UserInfo['phone'] = phone
-        UserInfo['address'] = address
-        UserInfo['gender'] = gender
-        UserInfo['tendency'] = tendency
+        setUserInfo({
+            userId: id,
+            password: pw,
+            username: name,
+            email: email,
+            phone: phone,
+            address: address,
+            gender: gender,
+            tendency: tendency
+        });
         try {
             axios({
                 method: 'post',
-                url: '/user/signup',
-                data: UserInfo
+                url: '/user/join',
+                data: userInfo
             }).then(result => {
                 if (result.status == 200) {
                     alert("회원가입에 성공했습니다!");
@@ -115,7 +116,9 @@ export default function MyPage() {
     };
 
     const idCheck = e => {
+        e.preventDefault();
         let idCheck = document.querySelector("#id");
+        let id = idCheck.value.trim;
         if (idCheck.value.trim() === "") {
             Swal.fire({
                 title: "아이디를 입력해주세요"
@@ -125,20 +128,17 @@ export default function MyPage() {
             return false;
         }
 
-        e.preventDefault();
-        let id = e.target.value;
-
         try {
             axios({
                 method: 'post',
-                url: '/user/idcheck',
+                url: '/user/idCheck',
                 data: id
             }).then(result => {
-                if (result.status == 200) {
+                if (result.data == 200) {
                     alert("사용 가능한 아이디입니다");
                     setId(id);
                     setIsId(true);
-                } else if (result.status === 409) {
+                } else if (result.data === 409) {
                     Swal.fire({
                         title: "아이디를 다시 입력해주세요"
                     }).then(() => {
@@ -238,7 +238,10 @@ export default function MyPage() {
         }
 
         if (!(idCheck.value.trim() === "") && !(pwCheck.value.trim() === "") && !(nameCheck.value.trim() === "")
-            && setIsId(true) && setIsPw(true) && setIsName(true)) {
+        ) {
+            let idCheck = document.querySelector("#id");
+            setId(idCheck)
+            setIsId(true)
 
             loginup2.classList.remove("none");
             loginup.classList.remove("block");
@@ -443,7 +446,7 @@ export default function MyPage() {
                             <div class="id_box">
                                 <FontAwesomeIcon icon={faUser} />
                                 <input type="text" placeholder="UserId" class="id__input" id="id" />
-                                <span className="id_checkbox" onClick={idCheck}>중복확인</span>
+                                {/* <span className="id_checkbox" onClick={idCheck}>중복확인</span> */}
                             </div>
 
                             <div class="login__box">

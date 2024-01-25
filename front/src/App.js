@@ -7,6 +7,7 @@ import NavigationTop from './component/NavigationTop.js';
 import Footer from './Footer.js';
 import MyPage from './pages/MyPage.js';
 import SignUI from './pages/SignUI.js';
+import UserProfile from './pages/UserProfile.js';
 
 function App() {
   const [showNavigation, setShowNavigation] = useState(true);
@@ -16,7 +17,7 @@ function App() {
     // 페이지가 변경될 때마다 호출되는 함수
     const handleNavigation = () => {
       const isSignUI = window.location.pathname.includes('/SignUI');
-      setShowNavigation(!isSignUI); // MyPage에서는 Navigation을 보이지 않도록 설정
+      setShowNavigation(!isSignUI);
     };
 
     // 페이지가 변경될 때마다 이벤트 리스너 등록
@@ -36,6 +37,7 @@ function App() {
           <Route path='/' element={<Main />} />
           <Route path='/MyPage/*' element={<MyPage />} />
           <Route path='/SignUI/*' element={<SignUI />} />
+          <Route path='/UserProfile/*' element={<UserProfile />} />
         </Routes>
       </div>
       {showNavigation && <Footer />}

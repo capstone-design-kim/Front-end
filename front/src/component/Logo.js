@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import './css/Navigation.css';
+import '../css/Navigation.css';
 
-const Navigation = () => {
+const Logo = () => {
 
     return (
         <div className='logo-main'>
@@ -10,4 +10,4 @@ const Navigation = () => {
     )
 }
 
-export default Navigation;
+export default Logo;

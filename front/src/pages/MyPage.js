@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios";
 import '../css/MyPage.css';
-import Logo from '../Logo.js';
-import { faUser, faLock, faPerson, faEnvelope, faPhone, faHouse, faVenusMars, faUsers, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import NavigationUser from '../component/NavigationUser.js';
 
 export default function MyPage() {
     const navigate = useNavigate();
@@ -16,9 +15,22 @@ export default function MyPage() {
         }
     })
 
+    const logoutbtn = e => {
+        e.preventDefault();
+        window.localStorage.removeItem('token');
+        window.localStorage.removeItem('username');
+        setIsToken(false)
+        navigate('/');
+    }
+
     return (
         <div>
-            {window.location.pathname.includes('/MyPage') && <Logo />}
+            {window.location.pathname.includes('/MyPage') && <NavigationUser />}
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
     );
 }
