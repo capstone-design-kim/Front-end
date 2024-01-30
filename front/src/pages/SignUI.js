@@ -446,7 +446,7 @@ export default function MyPage() {
                             <div class="id_box">
                                 <FontAwesomeIcon icon={faUser} />
                                 <input type="text" placeholder="UserId" class="id__input" id="id" />
-                                {/* <span className="id_checkbox" onClick={idCheck}>중복확인</span> */}
+                                <span className="id_checkbox" onClick={idCheck}>중복확인</span>
                             </div>
 
                             <div class="login__box">

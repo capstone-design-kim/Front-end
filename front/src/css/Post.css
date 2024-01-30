@@ -1,20 +1,20 @@
 .zip__input {
-    width: 30%;
+    width: 110px;
     height: 25px;
-    margin-right: 6%;
-    margin-bottom: 2%;
+    margin-right: 22px;
+    margin-bottom: 6px;
     cursor: default;
 }
 
 .road__input {
-    width: 62%;
+    width: 227px;
     height: 25px;
-    margin-bottom: 2%;
+    margin-bottom: 6px;
     cursor: default;
 }
 
 .detail__input {
-    width: 62%;
+    width: 227px;
     height: 25px;
 }
 

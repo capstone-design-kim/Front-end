@@ -28,7 +28,7 @@ export default function NavigationUser() {
                 <p className="myPage_main_font_p" onClick={logoutbtn}>로그아웃</p>
                 <Link className="myPage_main_font" to={'/UserProfile'}>유저 프로필</Link>
                 <Link className="myPage_main_font" to={'/UserModify'}>회원정보 수정</Link>
-                <Link className="myPage_main_font" to={'/UserDelete'}>회원 탈퇴</Link>
+                <Link className="myPage_main_font" to={'/UserDelete'} >회원 탈퇴</Link>
             </div>
         </div>
     );

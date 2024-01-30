@@ -8,6 +8,7 @@ import Footer from './Footer.js';
 import MyPage from './pages/MyPage.js';
 import SignUI from './pages/SignUI.js';
 import UserProfile from './pages/UserProfile.js';
+import UserModify from './pages/UserModify.js';
 
 function App() {
   const [showNavigation, setShowNavigation] = useState(true);
@@ -38,6 +39,7 @@ function App() {
           <Route path='/MyPage/*' element={<MyPage />} />
           <Route path='/SignUI/*' element={<SignUI />} />
           <Route path='/UserProfile/*' element={<UserProfile />} />
+          <Route path='/UserModify/*' element={<UserModify />} />
         </Routes>
       </div>
       {showNavigation && <Footer />}

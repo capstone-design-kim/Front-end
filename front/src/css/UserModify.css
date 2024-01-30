@@ -1,0 +1,50 @@
+.UserModify_Main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.UserModify_Form {
+    width: 600px;
+    height: 800px;
+    display: flex;
+    justify-content: space-around;
+    padding: 30px 0px 30px 0px;
+    border: solid 1px #4AD395;
+    margin-top: 50px;
+    font-size: large;
+    color: #747474;
+    font-weight: 500;
+}
+
+.UserModify_Form_dbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.UserModify_Form_Main {
+    display: flex;
+    align-items: center;
+}
+
+.UserModify_Form_dbox>input {
+    font-size: large;
+}
+
+.UserModify_Form_id {
+    margin-top: 4%;
+}
+
+.UserModify_Form_pw {
+    margin-top: 7%;
+}
+
+.UserModify_Form_name,
+.UserModify_Form_email,
+.UserModify_Form_phone {
+    margin-top: 8%;
+}
