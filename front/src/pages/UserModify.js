@@ -56,9 +56,9 @@ export default function UserModify() {
                         <input className='UserModify_Form_list' />
                     </div>
                 </form>
-                <div>
-                    <div>저장</div>
-                    <div>리셋</div>
+                <div className="userModify_button_box">
+                    <button type="button" >수정</button>
+                    <button type="button" >리셋</button>
                 </div>
             </div>
         </div>
