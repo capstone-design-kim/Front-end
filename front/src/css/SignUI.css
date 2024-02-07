@@ -223,6 +223,17 @@ img {
     transition: 0.3s;
 }
 
+.sign__button{
+    display: none;
+    padding: 1.5rem 10rem 1.5rem 10rem;
+    margin: 2rem 1.3rem 1rem 1.3rem;
+    background-color: #4AD395;
+    color: #fff;
+    text-align: center;
+    border-radius: 0.5rem;
+    border: none;
+}
+
 .login__button:hover {
     background-color: #65bf97;
 }
@@ -265,9 +276,9 @@ img {
     color: #4AD395;
 }
 
-#signup_next {
+#signup_next, #signup_last {
     cursor: pointer;
-}
+} 
 
 .bxlock {
     display: block;
@@ -304,7 +315,9 @@ option {
     font-size: 16px;
 }
 
-.info .box#domain-list option {
+.box#domain-list option, 
+.box#domain-list_phone option, 
+.box#domain-list_tendency {
     font-size: 14px;
     background-color: #ffffff;
 }

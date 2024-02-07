@@ -38,8 +38,7 @@
 }
 
 .user_stack_box>button,
-.user_profile_box>button,
-.user_profile_button_box>button {
+.user_profile_box>button {
     width: 300px;
     background-color: #4AD395;
     color: white;

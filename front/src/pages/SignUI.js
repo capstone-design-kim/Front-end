@@ -21,6 +21,20 @@ export default function MyPage() {
     const [address, setAddress] = useState('');
     const [gender, setGender] = useState('');
     const [tendency, setTendency] = useState('');
+ 
+    // 유저가 선택한 gender와 tendency를 state로 관리
+    const [selectedGender, setSelectedGender] = useState('');
+    const [selectedTendency, setSelectedTendency] = useState('');
+
+    // gender 선택 시 호출되는 함수
+    const handleGenderChange = (e) => {
+        setSelectedGender(e.target.value);
+    };
+    
+    // tendency 선택 시 호출되는 함수
+    const handleTendencyChange = (e) => {
+        setSelectedTendency(e.target.value);
+    };
 
     // 유저가 선택한 gender와 tendency를 state로 관리
     const [selectedGender, setSelectedGender] = useState('');
@@ -40,7 +54,7 @@ export default function MyPage() {
     const [pwMessage, setPwMessage] = useState('');
     const [nameMessage, setNameMessage] = useState('');
     const [phoneMessage, setPhoneMessage] = useState('');
-
+    
     // 유효성 검사
     const [isId, setIsId] = useState(false);
     const [isPw, setIsPw] = useState(false);
@@ -125,9 +139,15 @@ export default function MyPage() {
             axios({
                 method: 'post',
                 url: `/user/join`,
+<<<<<<< HEAD
                 data: { UserDto: signUpForm },
                 headers: {
                     'Content-Type': 'application/json'
+=======
+                data: { User: signUpForm }, 
+                headers: {
+                    'Content-Type': 'application/json' 
+>>>>>>> ee44b798bfb38aabcb656ee4aa43d50457907d3f
                 }
             }).then(result => {
                 if (result.status == 200) {
@@ -160,9 +180,15 @@ export default function MyPage() {
             axios({
                 method: 'post',
                 url: `/user/idCheck`,
+<<<<<<< HEAD
                 data: { id: id },
                 headers: {
                     'Content-Type': 'application/json'
+=======
+                data: { id: id }, 
+                headers: {
+                    'Content-Type': 'application/json' 
+>>>>>>> ee44b798bfb38aabcb656ee4aa43d50457907d3f
                 }
             }).then(result => {
                 if (result.status == 200) {
@@ -594,8 +620,13 @@ export default function MyPage() {
                             <div class="login__box">
                                 <div>
                                     <FontAwesomeIcon icon={faVenusMars} />
+<<<<<<< HEAD
                                     <input type="radio" id="genderMale" name="gender" value="남자" class="gender_input" checked={selectedGender === "남자"} onChange={handleGenderChange} />남자
                                     <input type="radio" id="genderFemale" name="gender" value="여자" class="gender_input" checked={selectedGender === "여자"} onChange={handleGenderChange} />여자
+=======
+                                    <input type="radio" id="genderMale" name="gender" value="남자" class="gender_input" checked={selectedGender === "남자"} onChange={handleGenderChange}/>남자
+                                    <input type="radio" id="genderFemale" name="gender" value="여자" class="gender_input" checked={selectedGender === "여자"} onChange={handleGenderChange}/>여자
+>>>>>>> ee44b798bfb38aabcb656ee4aa43d50457907d3f
                                 </div>
                             </div>
 
