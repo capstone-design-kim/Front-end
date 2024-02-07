@@ -5,7 +5,6 @@
     height: 420px;
     background-repeat: no-repeat;
     border: solid 1px #747474;
-    cursor: pointer;
     transition: 0.3s;
 }
 
@@ -30,7 +29,6 @@
     height: 420px;
     background-repeat: no-repeat;
     border: solid 1px #747474;
-    cursor: pointer;
     transition: 0.3s;
 }
 
@@ -41,7 +39,6 @@
     height: 420px;
     background-repeat: no-repeat;
     border: solid 1px #747474;
-    cursor: pointer;
     transition: 0.3s;
 }
 
@@ -89,8 +86,7 @@
 }
 
 .competition_arrow,
-.Top_competition>div,
-.contestName_content {
+.Top_competition>div {
     cursor: pointer;
 }
 
@@ -193,8 +189,11 @@ tr {
     width: 583px;
     border-top: solid 1px;
     padding: 30px 0px 30px 0px;
-    color: black;
     font-weight: bold;
+}
+
+.contestName_content>a {
+    color: black;
 }
 
 .contestPeriod {

@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 
 export default function MyPage() {
     const navigate = useNavigate();
-    const [userInfo, setUserInfo] = useState({});
+    const signUpForm = {}
 
     // 유효성 검사를 위한 선언
     const [id, setId] = useState('');
@@ -21,6 +21,20 @@ export default function MyPage() {
     const [address, setAddress] = useState('');
     const [gender, setGender] = useState('');
     const [tendency, setTendency] = useState('');
+
+    // 유저가 선택한 gender와 tendency를 state로 관리
+    const [selectedGender, setSelectedGender] = useState('');
+    const [selectedTendency, setSelectedTendency] = useState('');
+
+    // gender 선택 시 호출되는 함수
+    const handleGenderChange = (e) => {
+        setSelectedGender(e.target.value);
+    };
+
+    // tendency 선택 시 호출되는 함수
+    const handleTendencyChange = (e) => {
+        setSelectedTendency(e.target.value);
+    };
 
     // 오류메시지 상태저장
     const [pwMessage, setPwMessage] = useState('');
@@ -33,9 +47,24 @@ export default function MyPage() {
     const [isName, setIsName] = useState(false);
     const [isPhone, setIsPhone] = useState(false);
 
+    // 리스트 적용
+    const domainListEl = document.querySelector('#domain-list');
+    const domainInputEl = document.querySelector('#domain-txt');
+
+    if (domainListEl && domainInputEl) {
+        domainListEl.addEventListener('change', (event) => {
+            if (event.target.value !== "type") {
+                domainInputEl.value = event.target.value;
+                domainInputEl.disabled = true;
+            } else {
+                domainInputEl.value = "";
+                domainInputEl.disabled = false;
+            }
+        });
+    }
+
     const onLogin = e => {
         e.preventDefault();
-        setUserInfo({ userId: id, password: pw });
 
         let check_id = document.getElementById("login_id");
         let check_pw = document.getElementById("login_pw");
@@ -61,7 +90,7 @@ export default function MyPage() {
             axios({
                 method: 'post',
                 url: '/user/login',
-                data: userInfo
+                data: null
             }).then(result => {
                 if (result.status == 200) {
                     alert("로그인에 성공했습니다");
@@ -81,33 +110,32 @@ export default function MyPage() {
     }
 
     const onSubmit = e => {
-
-        let gender_input = document.querySelector("#gender");
-        let tendency_input = document.querySelector("#domain-list");
-
-        setGender(gender_input.value.trim());
-        setTendency(tendency_input.value.trim());
-
         e.preventDefault();
-        setUserInfo({
-            userId: id,
-            password: pw,
-            username: name,
-            email: email,
-            phone: phone,
-            address: address,
-            gender: gender,
-            tendency: tendency
-        });
+
+        signUpForm['userId'] = id;
+        signUpForm['password'] = pw;
+        signUpForm['name'] = name;
+        signUpForm['email'] = email;
+        signUpForm['phone'] = phone;
+        signUpForm['address'] = address;
+        signUpForm['gender'] = gender;
+        signUpForm['tendency'] = tendency;
+
         try {
             axios({
                 method: 'post',
-                url: '/user/join',
-                data: userInfo
+                url: `/user/join`,
+                data: { UserDto: signUpForm },
+                headers: {
+                    'Content-Type': 'application/json'
+                }
             }).then(result => {
                 if (result.status == 200) {
-                    alert("회원가입에 성공했습니다!");
-                    navigate('/Login');
+                    Swal.fire({
+                        title: "회원가입에 성공했습니다!"
+                    }).then(() => {
+                        navigate('/Login');
+                    });
                 }
             })
         } catch (err) {
@@ -118,7 +146,7 @@ export default function MyPage() {
     const idCheck = e => {
         e.preventDefault();
         let idCheck = document.querySelector("#id");
-        let id = idCheck.value.trim;
+        let id = idCheck.value.trim();
         if (idCheck.value.trim() === "") {
             Swal.fire({
                 title: "아이디를 입력해주세요"
@@ -131,14 +159,20 @@ export default function MyPage() {
         try {
             axios({
                 method: 'post',
-                url: '/user/idCheck',
-                data: id
+                url: `/user/idCheck`,
+                data: { id: id },
+                headers: {
+                    'Content-Type': 'application/json'
+                }
             }).then(result => {
-                if (result.data == 200) {
-                    alert("사용 가능한 아이디입니다");
-                    setId(id);
-                    setIsId(true);
-                } else if (result.data === 409) {
+                if (result.status == 200) {
+                    Swal.fire({
+                        title: "사용 가능한 아이디입니다"
+                    }).then(() => {
+                        setId(id);
+                        setIsId(true);
+                    });
+                } else if (result.status === 409) {
                     Swal.fire({
                         title: "아이디를 다시 입력해주세요"
                     }).then(() => {
@@ -237,11 +271,9 @@ export default function MyPage() {
             return false;
         }
 
-        if (!(idCheck.value.trim() === "") && !(pwCheck.value.trim() === "") && !(nameCheck.value.trim() === "")
+        if (!(idCheck.value.trim() === "") && !(pwCheck.value.trim() === "") && !(nameCheck.value.trim() === "") && (isId === true) && (isPw === true) && (isName === true)
         ) {
-            let idCheck = document.querySelector("#id");
-            setId(idCheck)
-            setIsId(true)
+            setName(nameCheck.value.trim());
 
             loginup2.classList.remove("none");
             loginup.classList.remove("block");
@@ -256,7 +288,7 @@ export default function MyPage() {
 
         let emailCheck = document.querySelector("#email");
         let emailSecondCheck = document.querySelector("#domain-txt");
-        let phoneFrist = document.querySelector("#domain-list");
+        let phoneFrist = document.querySelector("#domain-list_phone");
         let phoneSecondCheck = document.querySelector("#phone_second");
         let phoneThirdCheck = document.querySelector("#phone_third");
         let houseCheck = document.querySelector("#house");
@@ -322,7 +354,7 @@ export default function MyPage() {
 
             setEmail(emailCheck.value.trim() + '@' + emailSecondCheck.value.trim());
             setPhone(phoneFrist.value.trim() + '-' + phoneSecondCheck.value.trim() + '-' + phoneThirdCheck.value.trim());
-            setName(houseCheck.value.trim() + '-' + houseSecondCheck.value.trim() + houseThirdCheck.value.trim());
+            setAddress(houseCheck.value.trim() + '-' + houseSecondCheck.value.trim() + ' ' + houseThirdCheck.value.trim());
 
             loginup3.classList.remove("none");
             loginup2.classList.remove("block");
@@ -332,22 +364,19 @@ export default function MyPage() {
         }
     }
 
+    const signup_check_3 = e => {
+        e.preventDefault();
+        setGender(selectedGender);
+        setTendency(selectedTendency);
+
+        const signupButton = document.querySelector("#signup_last");
+        signupButton.style.display = 'none';
+
+        const submitButton = document.querySelector(".sign__button");
+        submitButton.style.display = 'block';
+    }
 
     useEffect(() => {
-        const domainListEl = document.querySelector('#domain-list');
-        const domainInputEl = document.querySelector('#domain-txt');
-
-        if (domainListEl && domainInputEl) {
-            domainListEl.addEventListener('change', (event) => {
-                if (event.target.value !== "type") {
-                    domainInputEl.value = event.target.value;
-                    domainInputEl.disabled = true;
-                } else {
-                    domainInputEl.value = "";
-                    domainInputEl.disabled = false;
-                }
-            });
-        }
 
         const signup = document.getElementById("sign-up");
         const signup1 = document.getElementById("sign-up-1");
@@ -499,7 +528,7 @@ export default function MyPage() {
                             <div class="login__box">
                                 <div id="phone_box">
                                     <FontAwesomeIcon icon={faPhone} className="email" />
-                                    <select class="box" id="domain-list">
+                                    <select class="box" id="domain-list_phone">
                                         <option value="010" selected>010</option>
                                         <option value="011">011</option>
                                         <option value="016">016</option>
@@ -541,7 +570,7 @@ export default function MyPage() {
                             <div class="login__box">
                                 <div>
                                     <FontAwesomeIcon icon={faUsers} />
-                                    <select class="box" id="domain-list">
+                                    <select class="box" id="domain-list_tendency" value={selectedTendency} onChange={handleTendencyChange}>
                                         <option value="ISTJ" selected>ISTJ (현실주의자)</option>
                                         <option value="ISTP">ISTP (장인)</option>
                                         <option value="INFJ">INFJ (옹호자)</option>
@@ -565,12 +594,13 @@ export default function MyPage() {
                             <div class="login__box">
                                 <div>
                                     <FontAwesomeIcon icon={faVenusMars} />
-                                    <input type="radio" id="gender" name="gender" value="남자" class="gender_input" checked />남자
-                                    <input type="radio" id="gender" name="gender" value="여자" class="gender_input" />여자
+                                    <input type="radio" id="genderMale" name="gender" value="남자" class="gender_input" checked={selectedGender === "남자"} onChange={handleGenderChange} />남자
+                                    <input type="radio" id="genderFemale" name="gender" value="여자" class="gender_input" checked={selectedGender === "여자"} onChange={handleGenderChange} />여자
                                 </div>
                             </div>
 
-                            <a onClick={onSubmit} id="signup_next" class="login__button">회원가입</a>
+                            <span class="login__button" id="signup_last" onClick={signup_check_3}>다음</span>
+                            <button type="submit" id="signup_next" class="sign__button">회원가입</button>
 
                             <div>
                                 <span class="login__account login__account--account">이미 회원이신가요?</span>

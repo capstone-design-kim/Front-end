@@ -9,6 +9,7 @@ import MyPage from './pages/MyPage.js';
 import SignUI from './pages/SignUI.js';
 import UserProfile from './pages/UserProfile.js';
 import UserModify from './pages/UserModify.js';
+import CompetitionDetail from './pages/CompetitionDetail.js';
 
 function App() {
   const [showNavigation, setShowNavigation] = useState(true);
@@ -40,6 +41,7 @@ function App() {
           <Route path='/SignUI/*' element={<SignUI />} />
           <Route path='/UserProfile/*' element={<UserProfile />} />
           <Route path='/UserModify/*' element={<UserModify />} />
+          <Route path='/CompetitionDetail/*' element={<CompetitionDetail />} />
         </Routes>
       </div>
       {showNavigation && <Footer />}
