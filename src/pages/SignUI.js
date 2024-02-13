@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 
 export default function MyPage() {
     const navigate = useNavigate();
-    const signUpForm = {}
+    const userDTO = {}
 
     // 유효성 검사를 위한 선언
     const [id, setId] = useState('');
@@ -22,19 +22,19 @@ export default function MyPage() {
     const [gender, setGender] = useState('');
     const [tendency, setTendency] = useState('');
 
-    // 유저가 선택한 gender와 tendency를 state로 관리
-    const [selectedGender, setSelectedGender] = useState('');
-    const [selectedTendency, setSelectedTendency] = useState('');
+  // 유저가 선택한 gender와 tendency를 state로 관리
+  const [selectedGender, setSelectedGender] = useState('');
+  const [selectedTendency, setSelectedTendency] = useState('');
 
-    // gender 선택 시 호출되는 함수
-    const handleGenderChange = (e) => {
-        setSelectedGender(e.target.value);
-    };
+  // gender 선택 시 호출되는 함수
+  const handleGenderChange = (e) => {
+      setSelectedGender(e.target.value);
+  };
 
-    // tendency 선택 시 호출되는 함수
-    const handleTendencyChange = (e) => {
-        setSelectedTendency(e.target.value);
-    };
+  // tendency 선택 시 호출되는 함수
+  const handleTendencyChange = (e) => {
+      setSelectedTendency(e.target.value);
+  };
 
     // 오류메시지 상태저장
     const [pwMessage, setPwMessage] = useState('');
@@ -86,14 +86,21 @@ export default function MyPage() {
             return false;
         }
 
+        const userSignInDto = {
+            username: check_id.value.trim(),
+            password: check_pw.value.trim()
+        };
+
+
         try {
             axios({
                 method: 'post',
-                url: '/user/login',
-                data: null
+                url: 'user/login',
+                data: userSignInDto
             }).then(result => {
                 if (result.status == 200) {
                     alert("로그인에 성공했습니다");
+                    window.localStorage.setItem('token', result.data.token);
                     navigate('/');
                 } else {
                     Swal.fire({
@@ -112,29 +119,33 @@ export default function MyPage() {
     const onSubmit = e => {
         e.preventDefault();
 
-        signUpForm['userId'] = id;
-        signUpForm['password'] = pw;
-        signUpForm['name'] = name;
-        signUpForm['email'] = email;
-        signUpForm['phone'] = phone;
-        signUpForm['address'] = address;
-        signUpForm['gender'] = gender;
-        signUpForm['tendency'] = tendency;
+        userDTO['userId'] = id;
+        userDTO['password'] = pw;
+        userDTO['name'] = name;
+        userDTO['Email'] = email;
+        userDTO['Phone'] = phone;
+        userDTO['address'] = address;
+        userDTO['gender'] = gender;
+        userDTO['Tendency'] = tendency;
 
         try {
             axios({
                 method: 'post',
-                url: '/user/join',
-                data: { UserDto: signUpForm },
-                headers: {
-                    'Content-Type': 'application/json'
-                }
+                url: '/user/signup',
+                data: userDTO
             }).then(result => {
                 if (result.status == 200) {
                     Swal.fire({
                         title: "회원가입에 성공했습니다!"
                     }).then(() => {
-                        navigate('/Login');
+                        window.location.reload('/SignUI');
+                    });
+                }
+                else{
+                    Swal.fire({
+                        title: "회원가입에 실패했습니다!"
+                    }).then(() => {
+                        navigate('/SignUI');
                     });
                 }
             })
@@ -454,7 +465,7 @@ export default function MyPage() {
                             </div>
                             <div class="login__box">
                                 <FontAwesomeIcon icon={faLock} />
-                                <input type="text" placeholder="Password" class="login__input" id="login_pw" />
+                                <input type="password" placeholder="Password" class="login__input" id="login_pw" />
                             </div>
                             <a href="#" class="login__forgot">Forgot Password? </a>
 
@@ -557,8 +568,9 @@ export default function MyPage() {
                             </div>
                         </form>
 
-                        {/* 회원가입 3번째 폼 */}
-                        <form class="login__create none" id="login-up-3" onSubmit={onSubmit}>
+                      {/* 회원가입 3번째 폼 */}
+                    {/* 회원가입 3번째 폼 */}
+                    <form class="login__create none" id="login-up-3" onSubmit={onSubmit}>
                             <div className="title__box">
                                 <FontAwesomeIcon className="before" icon={faArrowLeft} size="2x" id="login-in-2" />
                                 <h1 class="login__title__bofore">회원가입</h1>
@@ -591,8 +603,8 @@ export default function MyPage() {
                             <div class="login__box">
                                 <div>
                                     <FontAwesomeIcon icon={faVenusMars} />
-                                    <input type="radio" id="genderMale" name="gender" value="남자" class="gender_input" checked={selectedGender === "남자"} onChange={handleGenderChange} />남자
-                                    <input type="radio" id="genderFemale" name="gender" value="여자" class="gender_input" checked={selectedGender === "여자"} onChange={handleGenderChange} />여자
+                                    <input type="radio" id="genderMale" name="gender" value="M" class="gender_input" checked={selectedGender === "M"} onChange={handleGenderChange} />남자
+                                    <input type="radio" id="genderFemale" name="gender" value="G" class="gender_input" checked={selectedGender === "G"} onChange={handleGenderChange} />여자
                                 </div>
                             </div>
 
