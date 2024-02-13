@@ -160,7 +160,7 @@ export default function MyPage() {
             axios({
                 method: 'post',
                 url: '/user/idCheck',
-                data: id
+                data: { id: id }
             }).then(result => {
                 if (result.status == 200) {
                     Swal.fire({

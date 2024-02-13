@@ -1,0 +1,131 @@
+.competiton_detail_big_box {
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 10vw;
+}
+
+.competition_detail_top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: large;
+    margin-top: 3%;
+}
+
+.competition_detail_top_state {
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.competition_detail_top_state>div {
+    width: 30%;
+    border: solid 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.competition_detail_top_state_deadline {
+    background-color: red;
+}
+
+.competition_detail_top_state_matching,
+.competition_detail_top_state_register {
+    background-color: #7a81eb;
+}
+
+.competition_detail_top_BH {
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: #747474;
+}
+
+.competition_detail_top_hits {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.competition_detail_contest_name {
+    width: 100%;
+    display: flex;
+    font-size: 250%;
+    margin-top: 1%;
+}
+
+.competition_detail_main {
+    width: 100%;
+    display: flex;
+    margin-top: 3%;
+}
+
+.competition_detail_main_img {
+    width: 30%;
+    height: 70vh;
+    background-image: url('../img/공모전1.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.competition_detail_main_detail {
+    width: 70%;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.competition_detail_main_detail_content {
+    display: flex;
+    color: #747474;
+}
+
+.competition_detail_main_detail_frist {
+    width: 50%;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.competition_detail_main_detail_second {
+    width: 50%;
+    height: 27.3vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.competition_detail_main_detail_frist>div,
+.competition_detail_main_detail_second>div {
+    display: flex;
+    margin-left: 20%;
+}
+
+.competition_detail_main_detail_content_detail {
+    width: 20%;
+    margin-right: 10%;
+}
+
+.competition_detail_main_team {
+    width: 80%;
+    height: 15vh;
+    margin-left: 10%;
+    background-color: #4AD395;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: large;
+}
+
+.competition_detail_content {
+    margin-top: 5%;
+}

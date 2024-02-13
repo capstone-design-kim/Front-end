@@ -176,17 +176,17 @@ tr {
 .contestSituation,
 .contestCircumstances,
 .hits {
-    width: 130px;
+    width: 132px;
     padding: 20px 0px 20px 0px;
 }
 
 .contestName {
-    width: 583px;
+    width: 575px;
     padding: 20px 0px 20px 0px;
 }
 
 .contestName_content {
-    width: 583px;
+    width: 575px;
     border-top: solid 1px;
     padding: 30px 0px 30px 0px;
     font-weight: bold;
@@ -197,12 +197,12 @@ tr {
 }
 
 .contestPeriod {
-    width: 300px;
+    width: 280px;
     padding: 20px 0px 20px 0px;
 }
 
 .contestPeriod_content {
-    width: 300px;
+    width: 280px;
     border-top: solid 1px;
     padding: 30px 0px 30px 0px;
     color: #747474;
@@ -211,7 +211,7 @@ tr {
 .contestSituation_content,
 .contestCircumstances_content,
 .hits_content {
-    width: 130px;
+    width: 132px;
     border-top: solid 1px;
     padding: 30px 0px 30px 0px;
     color: #747474;
