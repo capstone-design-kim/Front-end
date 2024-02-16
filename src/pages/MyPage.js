@@ -15,14 +15,6 @@ export default function MyPage() {
         }
     })
 
-    const logoutbtn = e => {
-        e.preventDefault();
-        window.localStorage.removeItem('token');
-        window.localStorage.removeItem('username');
-        setIsToken(false)
-        navigate('/');
-    }
-
     return (
         <div>
             {window.location.pathname.includes('/MyPage') && <NavigationUser />}

@@ -1,9 +1,57 @@
 import '../css/CompetitionDetail.css';
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark } from '@fortawesome/free-regular-svg-icons';
 import { faEye, faPeopleGroup } from '@fortawesome/free-solid-svg-icons';
+import Swal from "sweetalert2";
+import axios from "axios";
 
 export default function CompetitionDetail() {
+    const navigate = useNavigate();
+
+    function Matching() {
+        Swal.fire({
+            title: "팀원 매칭 시 필요한 정보",
+            html: `
+                <p>팀원에게 원하는 기술 스택</p>
+                <input id="stack" class="swal2-input" placeholder="ex) 자바, 스프링">
+        
+                <p>공모전에 투자 가능한 시간</p>
+                <input id="time" class="swal2-input" placeholder="ex) 주 50시간 이상">
+        
+                <p>기타(하고싶은 말)</p>
+                <input id="comment" class="swal2-input" placeholder="하고싶은 말을 적어주세요">
+            `,
+            showCancelButton: true,
+            confirmButtonText: "팀원찾기",
+            cancelButtonText: "취소"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const stack = document.getElementById('stack').value;
+                const time = document.getElementById('time').value;
+                const comment = document.getElementById('comment').value;
+
+                const profileRequestDto = [];
+                profileRequestDto[stack] = stack;
+                profileRequestDto[time] = time;
+                profileRequestDto[comment] = comment;
+        
+                try{
+                    axios({
+                        method: 'post',
+                        url: 'user-profile',
+                        data: profileRequestDto
+                    }).then(result => {
+                        navigate('/CompetitionMatching');
+                    })
+                }catch (err) {
+                    console.error(err);
+                }
+            }
+        });
+        
+    }
+
     return (
         <div className='competiton_detail_big_box'>
             <div className='competition_detail_top'>
@@ -58,7 +106,7 @@ export default function CompetitionDetail() {
                             </div>
                         </div>
                     </div>
-                    <div className='competition_detail_main_team'>
+                    <div className='competition_detail_main_team' onClick={Matching}>
                         <FontAwesomeIcon icon={faPeopleGroup} size='2x' />
                         <p>나와 맞는 팀원 찾기</p>
                     </div>

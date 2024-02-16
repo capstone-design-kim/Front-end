@@ -13,7 +13,6 @@ export default function NavigationUser() {
     const logoutbtn = e => {
         e.preventDefault();
         window.localStorage.removeItem('token');
-        window.localStorage.removeItem('username');
         setIsToken(false)
         navigate('/');
     }

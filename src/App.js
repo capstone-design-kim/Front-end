@@ -10,6 +10,7 @@ import SignUI from './pages/SignUI.js';
 import UserProfile from './pages/UserProfile.js';
 import UserModify from './pages/UserModify.js';
 import CompetitionDetail from './pages/CompetitionDetail.js';
+import CompetitionMatching from './pages/CompetitionMatching.js';
 
 function App() {
   const [showNavigation, setShowNavigation] = useState(true);
@@ -42,6 +43,7 @@ function App() {
           <Route path='/UserProfile/*' element={<UserProfile />} />
           <Route path='/UserModify/*' element={<UserModify />} />
           <Route path='/CompetitionDetail/*' element={<CompetitionDetail />} />
+          <Route path='/CompetitionMatching/*' element={<CompetitionMatching />} />
         </Routes>
       </div>
       {showNavigation && <Footer />}

@@ -124,6 +124,7 @@
     align-items: center;
     justify-content: center;
     font-size: large;
+    cursor: pointer;
 }
 
 .competition_detail_content {
