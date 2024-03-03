@@ -66,10 +66,10 @@ export default function MyPage() {
     const onLogin = e => {
         e.preventDefault();
 
-        let check_id = document.getElementById("login_id");
-        let check_pw = document.getElementById("login_pw");
+        let check_id = document.getElementById("login_id").value.trim();
+        let check_pw = document.getElementById("login_pw").value.trim();
 
-        if (check_id.value.trim() === "") {
+        if (check_id === "") {
             Swal.fire({
                 title: "아이디를 입력해주세요"
             }).then(() => {
@@ -77,7 +77,7 @@ export default function MyPage() {
             });
             return false;
         }
-        if (check_pw.value.trim() === "") {
+        if (check_pw === "") {
             Swal.fire({
                 title: "비밀번호를 입력해주세요"
             }).then(() => {
@@ -87,8 +87,8 @@ export default function MyPage() {
         }
 
         const userSignInDto = {
-            username: check_id.value.trim(),
-            password: check_pw.value.trim()
+            username: check_id,
+            password: check_pw
         };
 
 
@@ -99,9 +99,14 @@ export default function MyPage() {
                 data: userSignInDto
             }).then(result => {
                 if (result.status == 200) {
-                    alert("로그인에 성공했습니다");
-                    window.localStorage.setItem('token', result.data.token);
-                    navigate('/');
+                    Swal.fire({
+                        title: "로그인에 성공했습니다"
+                    }).then(() => {
+                        navigate('/');
+                        window.localStorage.setItem('token', result.data.token);
+                        window.localStorage.setItem('userId', result.data.userId)
+                        navigate('/Login');
+                    });
                 } else {
                     Swal.fire({
                         title: "아이디 / 비밀번호가 맞지 않습니다"
@@ -119,14 +124,14 @@ export default function MyPage() {
     const onSubmit = e => {
         e.preventDefault();
 
-        userDTO['userId'] = id;
+        userDTO['user_id'] = id;
         userDTO['password'] = pw;
-        userDTO['name'] = name;
+        userDTO['username'] = name;
         userDTO['Email'] = email;
         userDTO['Phone'] = phone;
         userDTO['address'] = address;
         userDTO['gender'] = gender;
-        userDTO['Tendency'] = tendency;
+        userDTO['tendency'] = tendency;
 
         try {
             axios({
@@ -170,12 +175,12 @@ export default function MyPage() {
         try {
             axios({
                 method: 'post',
-                url: '/user/idCheck',
-                data: { id: id }
+                url: 'http://localhost:8080/user/idCheck',
+                data: { userId: id }
             }).then(result => {
                 if (result.status == 200) {
                     Swal.fire({
-                        title: "사용 가능한 아이디입니다"
+                        title: "사용 가능한 아이디입니다."
                     }).then(() => {
                         setId(id);
                         setIsId(true);
